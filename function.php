@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Date$
+ * @version 2012-07-06T20:45:13Z
  * @author François LASSERRE <choiz@me.com> 
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
  */
