@@ -1,21 +1,9 @@
 <?php
 /**
- * @version 2012-07-06T20:45:13Z (ISO-8601)
- * @version $_datetime_$ (ISO-8601)
+ * @version 2012-07-06T21:47:50Z (ISO-8601)
  * @author François LASSERRE <choiz@me.com> 
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
  */
-
-/**
- * foo 
- * 
- * @param mixed $bar 
- * @access public
- * @return void
- */
-function foo($bar) {
-	return false;
-}
 
 /**
  * makedir 
