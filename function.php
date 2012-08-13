@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2012-07-06T22:12:20Z (ISO-8601)
+ * @version 2012-08-13T212:46:48Z (ISO-8601)
  * @author François LASSERRE <choiz@me.com> 
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
  */
@@ -94,5 +94,40 @@ function cut($s, $m) {
 		$s = substr($s, 0, $sp)."...";
 	}
 	return $s;
+}
+
+/**
+ * get_url_params 
+ * 
+ * @param mixed $url get params in url, or NULL
+ * @param array $array_default set default params (or add new one)
+ * @access public
+ * @return void
+ */
+function get_url_params($url=NULL, $array_default=array()) {
+    if ($url == NULL) {
+        $params = $_SERVER['QUERY_STRING'];
+    } else {
+        $params = parse_url($url, PHP_URL_QUERY);
+    }
+    parse_str($params, $out);
+    return array_merge($array_default, $out);
+}
+
+/**
+ * set_url_params 
+ * 
+ * @param array $array define the params to change as key => value
+ * @param mixed $get_params true to get all the params through get_url_params, false to ignore the params
+ * @access public
+ * @return void
+ */
+function set_url_params($array = array(), $get_params = false) {
+    if ($get_params != false) {
+        $out = array_merge(get_url_params(),$array);
+    } else {
+        $out = $array;
+    }
+    return '?'.http_build_query($out);
 }
 ?>
