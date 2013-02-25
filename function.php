@@ -5,8 +5,22 @@
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
  */
 
+/* public print_array($array) {{{ */
 /**
- * makedir 
+ * print_array
+ * 
+ * @param array $array 
+ * @access public
+ * @return void
+ */
+function print_array($array) {
+    echo '<pre>',print_r($array),'</pre>';
+}
+/* }}} */
+
+/* public makedir($rep) {{{ */ 
+/**
+ * makedir
  * 
  * @param string $rep 
  * @access public
@@ -26,9 +40,11 @@ function makedir($rep) {
 		throw new exception("Folder: '".$path['dirname']."' isn't writable!", 3);
 	}
 }
+/* }}} */
 
+/* public rm_accent($s, $c='utf-8') {{{ */ 
 /**
- * rm_accent 
+ * rm_accent
  * 
  * @param string $s 
  * @param string $c 
@@ -41,9 +57,11 @@ function rm_accent($s, $c='utf-8') {
 	$s = preg_replace('#&([A-Za-z]{2})(?:lig);#', '\1', $s);
 	return preg_replace('#&[^;]+;#', '', $s);
 }
+/* }}} */
 
+/* public mb_ucfirst($s, $c='utf-8') {{{ */ 
 /**
- * mb_ucfirst 
+ * mb_ucfirst
  * 
  * @param string $s 
  * @param string $c 
@@ -61,9 +79,11 @@ function mb_ucfirst($s, $c='utf-8') {
 	}
 	return $s;
 }
+/* }}} */
 
+/* public mb_ucwords($s, $c ='utf-8') {{{ */ 
 /**
- * mb_ucwords 
+ * mb_ucwords
  * 
  * @param string $s 
  * @param string $c 
@@ -78,9 +98,11 @@ function mb_ucwords($s, $c ='utf-8') {
 	}
 	return $s;
 }
+/* }}} */
 
+/* public cut($s, $m) {{{ */ 
 /**
- * cut 
+ * cut
  * 
  * @param string $s 
  * @param string $m 
@@ -95,9 +117,11 @@ function cut($s, $m) {
 	}
 	return $s;
 }
+/* }}} */
 
+/* public get_url_params($url=NULL, $array_default=array()) {{{ */ 
 /**
- * get_url_params 
+ * get_url_params
  * 
  * @param mixed $url get params in url, or NULL
  * @param array $array_default set default params (or add new one)
@@ -113,9 +137,11 @@ function get_url_params($url=NULL, $array_default=array()) {
     parse_str($params, $out);
     return array_merge($array_default, $out);
 }
+/* }}} */
 
+/* public set_url_params($array = array(), $get_params = false) {{{ */ 
 /**
- * set_url_params 
+ * set_url_params
  * 
  * @param array $array define the params to change as key => value
  * @param mixed $get_params true to get all the params through get_url_params, false to ignore the params
@@ -130,4 +156,5 @@ function set_url_params($array = array(), $get_params = false) {
     }
     return '?'.http_build_query($out);
 }
+/* }}} */
 ?>
