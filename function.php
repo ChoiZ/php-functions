@@ -1,15 +1,17 @@
 <?php
 /**
+ * vim: set foldmethod=marker:
+ *
  * @version 2013-02-25T10:46:22Z (ISO-8601)
- * @author François LASSERRE <choiz@me.com> 
+ * @author François LASSERRE <choiz@me.com>
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
  */
 
 /* public print_array($array) {{{ */
 /**
  * print_array
- * 
- * @param array $array 
+ *
+ * @param array $array
  * @access public
  * @return void
  */
@@ -18,17 +20,17 @@ function print_array($array) {
 }
 /* }}} */
 
-/* public makedir($rep) {{{ */ 
+/* public makedir($rep) {{{ */
 /**
  * makedir
- * 
- * @param string $rep 
+ *
+ * @param string $rep
  * @access public
- * @return void 
+ * @return void
  */
 function makedir($rep) {
 	$path = pathinfo($rep);
-	if(is_writable($path['dirname'])) { 
+	if(is_writable($path['dirname'])) {
 		if(is_executable($path['dirname'])) {
 			if(!@mkdir($rep)) {
 				throw new exception("Error: Creating '$rep'", 1);
@@ -42,14 +44,14 @@ function makedir($rep) {
 }
 /* }}} */
 
-/* public rm_accent($s, $c='utf-8') {{{ */ 
+/* public rm_accent($s, $c='utf-8') {{{ */
 /**
  * rm_accent
- * 
- * @param string $s 
- * @param string $c 
+ *
+ * @param string $s
+ * @param string $c
  * @access public
- * @return string 
+ * @return string
  */
 function rm_accent($s, $c='utf-8') {
 	$s = htmlentities($s, ENT_NOQUOTES, $charset);
@@ -59,14 +61,14 @@ function rm_accent($s, $c='utf-8') {
 }
 /* }}} */
 
-/* public mb_ucfirst($s, $c='utf-8') {{{ */ 
+/* public mb_ucfirst($s, $c='utf-8') {{{ */
 /**
  * mb_ucfirst
- * 
- * @param string $s 
- * @param string $c 
- * @access public 
- * @return string 
+ *
+ * @param string $s
+ * @param string $c
+ * @access public
+ * @return string
  */
 function mb_ucfirst($s, $c='utf-8') {
 	if (function_exists('mb_strtoupper') && function_exists('mb_substr') && !empty($s)) {
@@ -81,12 +83,12 @@ function mb_ucfirst($s, $c='utf-8') {
 }
 /* }}} */
 
-/* public mb_ucwords($s, $c ='utf-8') {{{ */ 
+/* public mb_ucwords($s, $c ='utf-8') {{{ */
 /**
  * mb_ucwords
- * 
- * @param string $s 
- * @param string $c 
+ *
+ * @param string $s
+ * @param string $c
  * @access public
  * @return string
  */
@@ -100,14 +102,14 @@ function mb_ucwords($s, $c ='utf-8') {
 }
 /* }}} */
 
-/* public cut($s, $m) {{{ */ 
+/* public cut($s, $m) {{{ */
 /**
  * cut
- * 
- * @param string $s 
- * @param string $m 
- * @access public 
- * @return string 
+ *
+ * @param string $s
+ * @param string $m
+ * @access public
+ * @return string
  */
 function cut($s, $m) {
 	if (strlen($s)>$m) {
@@ -119,10 +121,10 @@ function cut($s, $m) {
 }
 /* }}} */
 
-/* public get_url_params($url=NULL, $array_default=array()) {{{ */ 
+/* public get_url_params($url=NULL, $array_default=array()) {{{ */
 /**
  * get_url_params
- * 
+ *
  * @param mixed $url get params in url, or NULL
  * @param array $array_default set default params (or add new one)
  * @access public
@@ -139,10 +141,10 @@ function get_url_params($url=NULL, $array_default=array()) {
 }
 /* }}} */
 
-/* public set_url_params($array = array(), $get_params = false) {{{ */ 
+/* public set_url_params($array = array(), $get_params = false) {{{ */
 /**
  * set_url_params
- * 
+ *
  * @param array $array define the params to change as key => value
  * @param mixed $get_params true to get all the params through get_url_params, false to ignore the params
  * @access public
