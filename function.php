@@ -2,38 +2,38 @@
 /**
  * vim: set foldmethod=marker:
  *
- * @version 2013-02-25T10:46:22Z (ISO-8601)
+ * @version 2013-03-21
  * @author François LASSERRE <choiz@me.com>
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
  */
 
 /* public print_array($array) {{{ */
 /**
- * print_array
+ * print_array Easiest for debugging
  *
- * @param array $array
+ * @param array $array Array to display.
  * @access public
- * @return void
+ * @return string
  */
 function print_array($array) {
     echo '<pre>',print_r($array,true),'</pre>';
 }
 /* }}} */
 
-/* public makedir($rep) {{{ */
+/* public makedir($folder) {{{ */
 /**
  * makedir
  *
- * @param string $rep
+ * @param string $folder Folder's name.
  * @access public
  * @return void
  */
-function makedir($rep) {
-	$path = pathinfo($rep);
+function makedir($folder) {
+	$path = pathinfo($folder);
 	if(is_writable($path['dirname'])) {
 		if(is_executable($path['dirname'])) {
-			if(!@mkdir($rep)) {
-				throw new exception("Error: Creating '$rep'", 1);
+			if(!@mkdir($folder)) {
+				throw new exception("Error: Creating '$folder'", 1);
 			}
 		} else {
 			throw new exception("Folder: '".$path['dirname']."' isn't executable!", 2);
@@ -48,8 +48,8 @@ function makedir($rep) {
 /**
  * rm_accent
  *
- * @param string $s
- * @param string $c
+ * @param string $s String to update.
+ * @param string $c Charset (utf-8 by default).
  * @access public
  * @return string
  */
@@ -65,8 +65,8 @@ function rm_accent($s, $c='utf-8') {
 /**
  * mb_ucfirst
  *
- * @param string $s
- * @param string $c
+ * @param string $s String to update.
+ * @param string $c Charset (utf-8 by default).
  * @access public
  * @return string
  */
@@ -87,8 +87,8 @@ function mb_ucfirst($s, $c='utf-8') {
 /**
  * mb_ucwords
  *
- * @param string $s
- * @param string $c
+ * @param string $s String to update.
+ * @param string $c Charset (utf-8 by default).
  * @access public
  * @return string
  */
@@ -104,10 +104,10 @@ function mb_ucwords($s, $c ='utf-8') {
 
 /* public cut($s, $m) {{{ */
 /**
- * cut
+ * cut Cut the string $s after $c caracter(s) if it's space or before the current word.
  *
- * @param string $s
- * @param string $m
+ * @param string $s String to cut.
+ * @param int $c Cut after this caracter(s) if it's space.
  * @access public
  * @return string
  */
@@ -125,10 +125,10 @@ function cut($s, $m) {
 /**
  * get_url_params
  *
- * @param mixed $url get params in url, or NULL
- * @param array $array_default set default params (or add new one)
+ * @param string|null $url Get params in url, or NULL.
+ * @param array $array_default Set default params (or add new one).
  * @access public
- * @return void
+ * @return array
  */
 function get_url_params($url=NULL, $array_default=array()) {
     if ($url == NULL) {
@@ -145,10 +145,10 @@ function get_url_params($url=NULL, $array_default=array()) {
 /**
  * set_url_params
  *
- * @param array $array define the params to change as key => value
- * @param mixed $get_params true to get all the params through get_url_params, false to ignore the params
+ * @param array $array Define the params to change as key => value.
+ * @param bool $get_params True to get all the params through get_url_params, false to ignore the params.
  * @access public
- * @return void
+ * @return string
  */
 function set_url_params($array = array(), $get_params = false) {
     if ($get_params != false) {
