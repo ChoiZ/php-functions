@@ -2,7 +2,7 @@
 /**
  * vim: set foldmethod=marker:
  *
- * @version 2013-03-21
+ * @version 2013-03-22
  * @author François LASSERRE <choiz@me.com>
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
  */
@@ -157,6 +157,25 @@ function set_url_params($array = array(), $get_params = false) {
         $out = $array;
     }
     return '?'.http_build_query($out);
+}
+/* }}} */
+
+/* public getRealIP() {{{ */
+/**
+ * getRealIP Get client ip address behind proxy
+ *
+ * @access public
+ * @return string Ip address
+ */
+function getRealIP() {
+	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+		$ip = $_SERVER['HTTP_CLIENT_IP'];
+	} else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	} else {
+		$ip = $_SERVER['REMOTE_ADDR'];
+	}
+	return $ip;
 }
 /* }}} */
 ?>
