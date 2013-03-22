@@ -162,10 +162,10 @@ function set_url_params($array = array(), $get_params = false) {
 
 /* public getRealIP() {{{ */
 /**
- * getRealIP Get client ip address behind proxy
+ * getRealIP Get client ip address behind proxy.
  *
  * @access public
- * @return string Ip address
+ * @return string Ip address.
  */
 function getRealIP() {
 	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
