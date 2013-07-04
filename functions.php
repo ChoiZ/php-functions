@@ -72,14 +72,10 @@ function rm_accent($s, $c='utf-8') {
  */
 function mb_ucfirst($s, $c='utf-8') {
 	if (function_exists('mb_strtoupper') && function_exists('mb_substr') && !empty($s)) {
-		$s = mb_strtolower($s, $c);
-		$up = mb_strtoupper($s, $c);
-		preg_match('#(.)#us', $up, $match);
-		$s = $match[1] . mb_substr($s, 1, mb_strlen($s, $c), $c);
-	} else {
-		$s = ucfirst($s);
+		$fc = mb_strtoupper(mb_substr($s, 0, 1, $e), $e);
+		return $fc.mb_substr($s, 1, mb_strlen($s, $e), $e);
 	}
-	return $s;
+	return ucfirst($s);
 }
 /* }}} */
 
@@ -94,11 +90,9 @@ function mb_ucfirst($s, $c='utf-8') {
  */
 function mb_ucwords($s, $c ='utf-8') {
 	if (function_exists('mb_convert_case') && !empty($s)) {
-		$s=mb_convert_case($s, MB_CASE_TITLE, $c);
-	} else {
-		$s=ucwords($s);
+		return mb_convert_case($s, MB_CASE_TITLE, $c);
 	}
-	return $s;
+	return ucwords($s);
 }
 /* }}} */
 
