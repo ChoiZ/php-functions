@@ -2,7 +2,7 @@
 /**
  * vim: set foldmethod=marker:
  *
- * @version 2013-03-22
+ * @version 2013-07-04 (Independence Day)
  * @author François LASSERRE <choiz@me.com>
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
  */
@@ -172,4 +172,3 @@ function getRealIP() {
 	return $ip;
 }
 /* }}} */
-?>
