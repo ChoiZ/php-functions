@@ -2,12 +2,11 @@
 /**
  * vim: set foldmethod=marker:
  *
- * @version 2013-07-04 (Independence Day)
+ * @version 2014-07-22
  * @author François LASSERRE <choiz@me.com>
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
  */
 
-/* public print_array($array) {{{ */
 /**
  * print_array Easiest for debugging
  *
@@ -18,9 +17,7 @@
 function print_array($array) {
     echo '<pre>',print_r($array,true),'</pre>';
 }
-/* }}} */
 
-/* public makedir($folder) {{{ */
 /**
  * makedir
  *
@@ -42,9 +39,7 @@ function makedir($folder) {
 		throw new exception("Folder: '".$path['dirname']."' isn't writable!", 3);
 	}
 }
-/* }}} */
 
-/* public rm_accent($s, $c='utf-8') {{{ */
 /**
  * rm_accent
  *
@@ -59,9 +54,7 @@ function rm_accent($s, $c='utf-8') {
 	$s = preg_replace('#&([A-Za-z]{2})(?:lig);#', '\1', $s);
 	return preg_replace('#&[^;]+;#', '', $s);
 }
-/* }}} */
 
-/* public mb_ucfirst($s, $c='utf-8') {{{ */
 /**
  * mb_ucfirst
  *
@@ -77,9 +70,7 @@ function mb_ucfirst($s, $c='utf-8') {
 	}
 	return ucfirst($s);
 }
-/* }}} */
 
-/* public mb_ucwords($s, $c ='utf-8') {{{ */
 /**
  * mb_ucwords
  *
@@ -94,9 +85,7 @@ function mb_ucwords($s, $c ='utf-8') {
 	}
 	return ucwords($s);
 }
-/* }}} */
 
-/* public cut($s, $m) {{{ */
 /**
  * cut Cut the string $s after $c caracter(s) if it's space or before the current word.
  *
@@ -113,9 +102,7 @@ function cut($s, $m) {
 	}
 	return $s;
 }
-/* }}} */
 
-/* public get_url_params($url=NULL, $array_default=array()) {{{ */
 /**
  * get_url_params
  *
@@ -133,9 +120,7 @@ function get_url_params($url=NULL, $array_default=array()) {
     parse_str($params, $out);
     return array_merge($array_default, $out);
 }
-/* }}} */
 
-/* public set_url_params($array = array(), $get_params = false) {{{ */
 /**
  * set_url_params
  *
@@ -152,9 +137,7 @@ function set_url_params($array = array(), $get_params = false) {
     }
     return '?'.http_build_query($out);
 }
-/* }}} */
 
-/* public getRealIP() {{{ */
 /**
  * getRealIP Get client ip address behind proxy.
  *
@@ -171,4 +154,3 @@ function getRealIP() {
 	}
 	return $ip;
 }
-/* }}} */
