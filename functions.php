@@ -1,7 +1,5 @@
 <?php
 /**
- * vim: set foldmethod=marker:
- *
  * @version 2014-07-22
  * @author François LASSERRE <choiz@me.com>
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
