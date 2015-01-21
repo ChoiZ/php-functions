@@ -13,7 +13,7 @@
  * @return string
  */
 function print_array($array) {
-    echo '<pre>',print_r($array,true),'</pre>';
+    echo '<pre>'.print_r($array,true).'</pre>';
 }
 
 /**
@@ -25,9 +25,9 @@ function print_array($array) {
  */
 function makedir($folder) {
     $path = pathinfo($folder);
-    if(is_writable($path['dirname'])) {
-        if(is_executable($path['dirname'])) {
-            if(!@mkdir($folder)) {
+    if (is_writable($path['dirname'])) {
+        if (is_executable($path['dirname'])) {
+            if (!@mkdir($folder)) {
                 throw new exception("Error: Creating '$folder'", 1);
             }
         } else {
@@ -128,10 +128,9 @@ function get_url_params($url=NULL, $array_default=array()) {
  * @return string
  */
 function set_url_params($array = array(), $get_params = false) {
+    $out = $array;
     if ($get_params != false) {
         $out = array_merge(get_url_params(),$array);
-    } else {
-        $out = $array;
     }
     return '?'.http_build_query($out);
 }
