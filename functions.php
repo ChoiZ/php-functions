@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2014-07-22
+ * @version 2015-01-21
  * @author François LASSERRE <choiz@me.com>
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
  */
