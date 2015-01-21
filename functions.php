@@ -24,18 +24,18 @@ function print_array($array) {
  * @return void
  */
 function makedir($folder) {
-	$path = pathinfo($folder);
-	if(is_writable($path['dirname'])) {
-		if(is_executable($path['dirname'])) {
-			if(!@mkdir($folder)) {
-				throw new exception("Error: Creating '$folder'", 1);
-			}
-		} else {
-			throw new exception("Folder: '".$path['dirname']."' isn't executable!", 2);
-		}
-	} else {
-		throw new exception("Folder: '".$path['dirname']."' isn't writable!", 3);
-	}
+    $path = pathinfo($folder);
+    if(is_writable($path['dirname'])) {
+        if(is_executable($path['dirname'])) {
+            if(!@mkdir($folder)) {
+                throw new exception("Error: Creating '$folder'", 1);
+            }
+        } else {
+            throw new exception("Folder: '".$path['dirname']."' isn't executable!", 2);
+        }
+    } else {
+        throw new exception("Folder: '".$path['dirname']."' isn't writable!", 3);
+    }
 }
 
 /**
@@ -47,10 +47,10 @@ function makedir($folder) {
  * @return string
  */
 function rm_accent($s, $c='utf-8') {
-	$s = htmlentities($s, ENT_NOQUOTES, $charset);
-	$s = preg_replace('#&([A-Za-z])(?:acute|cedil|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $s);
-	$s = preg_replace('#&([A-Za-z]{2})(?:lig);#', '\1', $s);
-	return preg_replace('#&[^;]+;#', '', $s);
+    $s = htmlentities($s, ENT_NOQUOTES, $charset);
+    $s = preg_replace('#&([A-Za-z])(?:acute|cedil|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $s);
+    $s = preg_replace('#&([A-Za-z]{2})(?:lig);#', '\1', $s);
+    return preg_replace('#&[^;]+;#', '', $s);
 }
 
 /**
@@ -62,11 +62,11 @@ function rm_accent($s, $c='utf-8') {
  * @return string
  */
 function mb_ucfirst($s, $c='utf-8') {
-	if (function_exists('mb_strtoupper') && function_exists('mb_substr') && !empty($s)) {
-		$fc = mb_strtoupper(mb_substr($s, 0, 1, $e), $e);
-		return $fc.mb_substr($s, 1, mb_strlen($s, $e), $e);
-	}
-	return ucfirst($s);
+    if (function_exists('mb_strtoupper') && function_exists('mb_substr') && !empty($s)) {
+        $fc = mb_strtoupper(mb_substr($s, 0, 1, $e), $e);
+        return $fc.mb_substr($s, 1, mb_strlen($s, $e), $e);
+    }
+    return ucfirst($s);
 }
 
 /**
@@ -78,10 +78,10 @@ function mb_ucfirst($s, $c='utf-8') {
  * @return string
  */
 function mb_ucwords($s, $c ='utf-8') {
-	if (function_exists('mb_convert_case') && !empty($s)) {
-		return mb_convert_case($s, MB_CASE_TITLE, $c);
-	}
-	return ucwords($s);
+    if (function_exists('mb_convert_case') && !empty($s)) {
+        return mb_convert_case($s, MB_CASE_TITLE, $c);
+    }
+    return ucwords($s);
 }
 
 /**
@@ -93,12 +93,12 @@ function mb_ucwords($s, $c ='utf-8') {
  * @return string
  */
 function cut($s, $m) {
-	if (strlen($s)>$m) {
-		$s = substr($s, 0, $m);
-		$sp = strrpos($s, " ");
-		$s = substr($s, 0, $sp)."...";
-	}
-	return $s;
+    if (strlen($s)>$m) {
+        $s = substr($s, 0, $m);
+        $sp = strrpos($s, " ");
+        $s = substr($s, 0, $sp)."...";
+    }
+    return $s;
 }
 
 /**
@@ -143,12 +143,12 @@ function set_url_params($array = array(), $get_params = false) {
  * @return string Ip address.
  */
 function getRealIP() {
-	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-		$ip = $_SERVER['HTTP_CLIENT_IP'];
-	} else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-		$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-	} else {
-		$ip = $_SERVER['REMOTE_ADDR'];
-	}
-	return $ip;
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
 }
