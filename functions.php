@@ -19,15 +19,17 @@ function print_array($array) {
 /**
  * makedir
  *
- * @param string $folder Folder's name.
+ * @param string $folder Folder's pathname.
+ * @param int    $mode Folder's chmod.
+ * @param string $recursive Allows the creation of nested directories specified in the pathname.
  * @access public
  * @return void
  */
-function makedir($folder) {
+function makedir($folder, $mode=0777, $recursive=false) {
     $path = pathinfo($folder);
     if (is_writable($path['dirname'])) {
         if (is_executable($path['dirname'])) {
-            if (!@mkdir($folder)) {
+            if (!@mkdir($folder, $mode, $recursive)) {
                 throw new exception("Error: Creating '$folder'", 1);
             }
         } else {
