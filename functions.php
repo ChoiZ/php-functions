@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2015-01-21
+ * @version 2015-12-30
  * @author François LASSERRE <choiz@me.com>
  * @license GNU GPL {@link http://www.gnu.org/licenses/gpl.html}
  */
@@ -152,4 +152,20 @@ function getRealIP() {
         $ip = $_SERVER['REMOTE_ADDR'];
     }
     return $ip;
+}
+
+/**
+ * issetDate Check if a variable is set and check if it is a real date
+ * 
+ * @access public
+ * @return bool
+ */
+function issetDate($date) {
+    if (!empty($date)) {
+        $d = date_parse($date);
+        if ($d['error_count'] == 0 && checkdate($d['month'], $d['day'], $d['year'])) {
+            return true;
+        }
+    }
+    return false;
 }
